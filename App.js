@@ -17,40 +17,68 @@ const App = () => {
     <View style={{backgroundColor: '#242938', flex: 1}}>
       <LineChart
         data={{
-          labels: ['1', '2', '3', '4', '5', '6','1', '2', '3', '4', '5', '6','1', '2', '3', '4', '5', '6','1', '2', '3', '4', '5', '6'],
+          labels: [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+          ],
           datasets: [
             {
               data: [
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
+                Math.random() * 0.01,
               ],
             },
           ],
         }}
+        onDataPointClick={index => {
+          console.log(index.index);
+        }}
         withVerticalLabels={false}
-        withHorizontalLines={false}
+        withVerticalLines={false}
         width={Dimensions.get('window').width} // from react-native
         height={220}
         yAxisLabel="$"
@@ -61,7 +89,7 @@ const App = () => {
           // fillShadowGradientOpacity: 0.5,
 
           // backgroundColor: '#e26a00',
-          decimalPlaces: 2, // optional, defaults to 2dp
+          decimalPlaces:4, // optional, defaults to 2dp
           color: (opacity = 1) => `rgba(255, 151, 47, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(207, 210, 221, ${opacity})`,
           style: {
@@ -74,7 +102,6 @@ const App = () => {
           },
         }}
         bezier
-
         style={{
           marginVertical: 8,
           borderRadius: 16,
