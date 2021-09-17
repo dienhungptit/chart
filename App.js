@@ -12,39 +12,73 @@ import {
 import {Dimensions} from 'react-native';
 const screenWidth = Dimensions.get('window').width;
 
-const chartConfig = {
-  backgroundGradientFrom: '#1E2923',
-  backgroundGradientFromOpacity: 0,
-  fillShadowGradient: 'rgba(255, 151, 47,1)',
-  backgroundGradientToOpacity: 0.5,
-  color: (opacity = 1) => `rgba(207, 210, 221, ${opacity})`,
-  strokeWidth: 2, // optional, default 3
-  barPercentage: 0.5,
-  useShadowColorFromDataset: false, // optional
-};
-
-const data = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-  datasets: [
-    {
-      data: [20, 45, 28, 80, 99, 43],
-      color: (opacity = 1) => `rgba(1255, 151, 47, ${opacity})`, // optional
-      strokeWidth: 2, // optional
-    },
-  ],
-  legend: ['Rainy Days'], // optional
-};
-
 const App = () => {
   return (
     <View style={{backgroundColor: '#242938', flex: 1}}>
       <LineChart
-        data={data}
-        width={screenWidth}
-        height={256}
-        verticalLabelRotation={30}
-        chartConfig={chartConfig}
+        data={{
+          labels: ['1', '2', '3', '4', '5', '6','1', '2', '3', '4', '5', '6','1', '2', '3', '4', '5', '6','1', '2', '3', '4', '5', '6'],
+          datasets: [
+            {
+              data: [
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+              ],
+            },
+          ],
+        }}
+        withVerticalLabels={false}
+        withHorizontalLines={false}
+        width={Dimensions.get('window').width} // from react-native
+        height={220}
+        yAxisLabel="$"
+        chartConfig={{
+          backgroundGradientFrom: '#242938',
+          backgroundGradientTo: '#242938',
+          // fillShadowGradient: 'rgba(255, 151, 47, 1)',
+          // fillShadowGradientOpacity: 0.5,
+
+          // backgroundColor: '#e26a00',
+          decimalPlaces: 2, // optional, defaults to 2dp
+          color: (opacity = 1) => `rgba(255, 151, 47, ${opacity})`,
+          labelColor: (opacity = 1) => `rgba(207, 210, 221, ${opacity})`,
+          style: {
+            borderRadius: 16,
+          },
+          propsForDots: {
+            r: '1',
+            strokeWidth: '1',
+            stroke: '#ffa726',
+          },
+        }}
         bezier
+
+        style={{
+          marginVertical: 8,
+          borderRadius: 16,
+        }}
       />
     </View>
   );
